@@ -19,8 +19,12 @@ public class DatabaseConstants {
     public static final String LINE2 = "line2";
 
     // ### DATA MANIPULATION QUERIES ###
-
-    // ID IS AUTO_INCREMENTED WE DO NOT HAVE TO SPECIFY IT INSIDE OF OUR QUERY.
-    // INSERT INTO SATELLITE VALUES (id, 'satelliteId', 'name', 'date', 'line1', 'line2');
     public static final String INSERT_QUERY = "INSERT INTO SATELLITE (SATELLITE_ID, NAME, DATE, LINE1, LINE2) VALUES (?, ?, ?, ?, ?);";
+    public static final String GET_QUERY = "SELECT * FROM SATELLITE ORDER BY ID DESC LIMIT ?;";
+    public static final String DELETE_QUERY = "DELETE FROM SATELLITE WHERE NAME=?";
+
+    // ### EXCEPTION MESSAGES ###
+    public static final String EXECUTION_FAILED = "Execution of query failed.";
+    public static final String PREPARATION_FAILED = "PreparedStatement preparation failed.";
+    public static final String UPDATE_FAILED = "Data Update Failed.";
 }

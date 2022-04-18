@@ -17,12 +17,12 @@ public class SatelliteServiceImpl implements SatelliteService {
 
     @Override
     public String getApiData(int number) {
-        return null;
+        return satelliteRepository.getApiData(number);
     }
 
     @Override
     public String deleteApiDataByName(String name) {
-        return null;
+        return satelliteRepository.deleteApiDataByName(name);
     }
 
     @Override
