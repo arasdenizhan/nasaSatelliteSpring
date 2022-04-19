@@ -1,6 +1,7 @@
 package org.example.demo.service.impl;
 
 import com.google.gson.JsonArray;
+import org.apache.logging.log4j.util.Strings;
 import org.example.demo.repository.SatelliteRepository;
 import org.example.demo.service.SatelliteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,12 @@ public class SatelliteServiceImpl implements SatelliteService {
 
     @Override
     public String getApiData(int number) {
-        return satelliteRepository.getApiData(number);
+        return number>0 ? satelliteRepository.getApiData(number) : null;
     }
 
     @Override
     public String deleteApiDataByName(String name) {
-        return satelliteRepository.deleteApiDataByName(name);
+        return Strings.isNotEmpty(name) ? satelliteRepository.deleteApiDataByName(name) : null;
     }
 
     @Override

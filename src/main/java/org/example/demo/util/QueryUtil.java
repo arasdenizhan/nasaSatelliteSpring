@@ -1,7 +1,7 @@
 package org.example.demo.util;
 
 import com.google.gson.JsonObject;
-import org.example.demo.constant.DatabaseConstants;
+import org.example.demo.constant.DatabaseDataEnum;
 import org.example.demo.dto.SatelliteDto;
 
 import java.sql.PreparedStatement;
@@ -15,11 +15,11 @@ public class QueryUtil {
     }
 
     public static void prepareInsertQuery(PreparedStatement preparedStatement, JsonObject jsonObject) throws SQLException {
-        preparedStatement.setString(1, JsonUtil.getJsonFieldValue(jsonObject, DatabaseConstants.SATELLITE_ID));
-        preparedStatement.setString(2, JsonUtil.getJsonFieldValue(jsonObject, DatabaseConstants.NAME));
-        preparedStatement.setString(3, JsonUtil.getJsonFieldValue(jsonObject, DatabaseConstants.DATE));
-        preparedStatement.setString(4, JsonUtil.getJsonFieldValue(jsonObject, DatabaseConstants.LINE1));
-        preparedStatement.setString(5, JsonUtil.getJsonFieldValue(jsonObject, DatabaseConstants.LINE2));
+        preparedStatement.setString(1, JsonUtil.getJsonFieldValue(jsonObject, DatabaseDataEnum.SATELLITE_ID.getValue()));
+        preparedStatement.setString(2, JsonUtil.getJsonFieldValue(jsonObject, DatabaseDataEnum.NAME.getValue()));
+        preparedStatement.setString(3, JsonUtil.getJsonFieldValue(jsonObject, DatabaseDataEnum.DATE.getValue()));
+        preparedStatement.setString(4, JsonUtil.getJsonFieldValue(jsonObject, DatabaseDataEnum.LINE1.getValue()));
+        preparedStatement.setString(5, JsonUtil.getJsonFieldValue(jsonObject, DatabaseDataEnum.LINE2.getValue()));
     }
 
     public static void prepareSelectQuery (PreparedStatement preparedStatement, int number) throws SQLException {

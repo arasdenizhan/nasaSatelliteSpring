@@ -35,8 +35,6 @@ public class NasaApiClient {
     }
 
     @Autowired
-
-
     public String getApiData() {
         return apiData;
     }

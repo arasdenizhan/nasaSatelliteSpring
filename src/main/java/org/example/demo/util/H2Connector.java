@@ -1,6 +1,6 @@
 package org.example.demo.util;
 
-import org.example.demo.constant.DatabaseConstants;
+import org.example.demo.constant.DatabaseConnectionEnum;
 import org.example.demo.exception.DatabaseConnectionFailedException;
 
 import java.sql.Connection;
@@ -18,11 +18,11 @@ public class H2Connector {
     public static synchronized Connection getConnection(){
         try{
             if(connection==null){
-                Class.forName(DatabaseConstants.DRIVER_CLASS_NAME);
+                Class.forName(DatabaseConnectionEnum.DRIVER_CLASS_NAME.getValue());
                 connection = DriverManager.getConnection(
-                        DatabaseConstants.DATABASE_URL,
-                        DatabaseConstants.USERNAME,
-                        DatabaseConstants.PASSWORD);
+                        DatabaseConnectionEnum.DATABASE_URL.getValue(),
+                        DatabaseConnectionEnum.USERNAME.getValue(),
+                        DatabaseConnectionEnum.PASSWORD.getValue());
             }
         } catch (ClassNotFoundException | SQLException e) {
             throw new DatabaseConnectionFailedException("Database connection failed.", e);
